@@ -53,12 +53,14 @@ The server is organized into layers to ensure maximum scalability and clean sepa
 ```text
 bvtrots-test-server/
 ├── data/               # Persistent JSON storage organized by project
-│   └──  cloudpix-platform/
+│   ├── cloudpix-platform/
+│   └──voyager-dashboard/  
 ├── public/             # Static assets organized by project
 ├── src/
 │   ├── app/            # Application bootstrap (server.ts)
 │   ├── entities/       # Project-specific logic (Routes & Models)
-│   │   └──cloudpix-platform/
+│   │   ├── cloudpix-platform/     
+│   │   └──voyager-dashboard/
 │   └── shared/         # Core infrastructure (The "Engine")
 │       ├── api/        # Base CRUD conductors
 │       ├── db/         # Database manipulation (db-engine.ts)
@@ -72,7 +74,8 @@ bvtrots-test-server/
 ## 🔗 Connected Applications
 The following applications are currently running on this server:
 
-📸 [CloudPix Platform](https://github.com/bvtrots/cloudpix-platform) — Photo Sharing Ecosystem.
+1. #### 📸 [CloudPix Platform](https://github.com/bvtrots/cloudpix-platform) — Photo Sharing Ecosystem.
+2. #### 📋 [Voyager Dashboard](https://github.com/bvtrots/voyager-dashboard) — Travel Management System.
 
 ---
 
