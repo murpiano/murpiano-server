@@ -1,6 +1,6 @@
 {
   "name": "murpiano-server",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "Backend for several frontend projects: CRUD over JSON files, uploads and custom routes.",
   "author": "murpiano",
   "main": "dist/server.js",
