@@ -7,5 +7,5 @@ export const PUBLIC_URL = process.env.PORT
   ? 'https://murpiano-server.onrender.com'
   : `http://localhost:${PORT}`;
 
-export const DATA_DIR = path.resolve('data');
-export const PUBLIC_DIR = path.resolve('public');
+export const DATA_DIR = path.resolve(process.env.DATA_DIR ?? 'data');
+export const PUBLIC_DIR = path.resolve(process.env.PUBLIC_DIR ?? 'public');
