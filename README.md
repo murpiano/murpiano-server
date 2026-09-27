@@ -1,3 +1,5 @@
+![murpiano-server](public/img/app-screenshot.jpg)
+
 # murpiano-server
 
 One small backend that serves the data for several frontend projects at once. It runs on
@@ -38,14 +40,14 @@ Projects served right now:
 
 ### Data on disk
 
-On start, `src/shared/db/db-engine.ts` reads every `data/<project>/<resource>.json` into one
+On start, `src/core/store.ts` reads every `data/<project>/<resource>.json` into one
 state object keyed by project, then resource. json-server wraps that object as its database.
 Every write goes back to the same file through `saveToDisk`, so the JSON in `data/` is always
 the current state and easy to inspect or reset with git.
 
 ### Generic routes
 
-`src/shared/api/crud.conductor.ts` is a middleware that splits the path into project, resource
+`src/core/crud.ts` is a middleware that splits the path into project, resource
 and id. If that resource exists in the state, it answers `GET`, `POST`, `PUT`, `PATCH` and
 `DELETE` itself. A `POST` without an id gets `crypto.randomUUID()`. Anything it doesn't
 recognise falls through to the json-server router.
@@ -54,8 +56,8 @@ This is why Voyager Dashboard needs no code here at all: three JSON files are en
 
 ### Project routers
 
-Routes that need logic live in `src/entities/<project>` and are mounted in
-`src/app/server.ts` before the generic middleware, so they win on the same path.
+Routes that need logic live in `src/projects/<project>/routes.ts` and are mounted in
+`src/app.ts` before the generic middleware, so they win on the same path.
 
 CloudPix gets `POST /cloudpix-platform/upload`. Multer saves the file to
 `public/cloudpix-platform/uploads`, prefixing the name with the last six digits of the
@@ -79,7 +81,7 @@ cd murpiano-server
 npm install
 
 npm run dev       # tsx watch on http://localhost:3001
-npm run build     # tsc, then tsc-alias rewrites the @shared/@entities paths
+npm run build     # compile to dist/ with tsc
 npm start         # run the build from dist/
 ```
 
@@ -92,17 +94,21 @@ which is also how the server decides to print its public URL instead of localhos
 data/                 one folder per project, one JSON file per resource
 public/               static files and uploads, also per project
 src/
-├── app/server.ts     wires middleware and routers together
-├── entities/         project-specific routers and types
-└── shared/
-    ├── api/          generic CRUD middleware
-    ├── db/           load and save the JSON files
-    ├── lib/          multer storage
-    └── types/
+├── server.ts         starts listening
+├── app.ts            builds the app: middleware, project routers, generic CRUD
+├── config.ts         port, public URL, data and public folders
+├── core/             JSON store, generic CRUD, upload storage
+└── projects/
+    ├── cloudpix-platform/    upload route, types
+    ├── travel-in-comfort/    auth, offers, favourites, comments
+    └── voyager-dashboard/    types only, served by the generic routes
 ```
 
-Imports inside `src` use the `@shared/*` and `@entities/*` aliases from `tsconfig.json`, always
-with an explicit `.js` extension, because the build runs as plain ES modules in Node.
+One folder per client project, and nothing in `core/` knows about any of them. Adding a
+project means a folder in `data/` and, only if it needs custom routes, a folder in `projects/`
+plus one line in `app.ts`. `app.ts` builds the app without starting it, so it can be tested
+without opening a port. Imports use relative paths with an explicit `.js` extension, because
+the build runs as plain ES modules in Node.
 
 ## API
 
@@ -131,7 +137,6 @@ Base URL: `https://murpiano-server.onrender.com`
 - Uploads have no size or type limit on the server side.
 - Travel in Comfort keeps a single logged-in user. The password is not checked, and a new
   login replaces the previous one.
-- `src/entities/voyager-dashboard` defines an empty router that is never mounted.
 - There are no tests and no CI.
 
 ---
