@@ -1,4 +1,4 @@
-# 🖥 bvtrots Test Server
+# 🖥 murpiano Server
 
 <p align="center">
   <img src="public/img/app-screenshot.jpg" alt="CloudPix Interface" width="600px">
@@ -51,7 +51,7 @@ The server is organized into layers to ensure maximum scalability and clean sepa
 ## 📂 Project Structure
 
 ```text
-bvtrots-test-server/
+murpiano-server/
 ├── data/               # Persistent JSON storage organized by project
 │   ├── cloudpix-platform/
 │   └──voyager-dashboard/  
@@ -74,16 +74,16 @@ bvtrots-test-server/
 ## 🔗 Connected Applications
 The following applications are currently running on this server:
 
-1. #### 📸 [CloudPix Platform](https://github.com/bvtrots/cloudpix-platform) — Photo Sharing Ecosystem.
-2. #### 📋 [Voyager Dashboard](https://github.com/bvtrots/voyager-dashboard) — Travel Management System.
+1. #### 📸 [CloudPix Platform](https://github.com/murpiano/cloudpix-platform) — Photo Sharing Ecosystem.
+2. #### 📋 [Voyager Dashboard](https://github.com/murpiano/voyager-dashboard) — Travel Management System.
 
 ---
 
 ## ⚙️ Installation & Setup
 1. Clone the repository
 
-        git clone git@github.com:bvtrots/bvtrots-test-server.git
-        cd bvtrots-test-server
+        git clone git@github.com:murpiano/murpiano-server.git
+        cd murpiano-server
 
 
 2. Install dependencies
@@ -126,5 +126,5 @@ By leveraging a **Shared/Entity** architecture, the core engine remains complete
 
 
 <p align="center">
-Developed with ❤️ by <strong><a href="https://github.com/bvtrots">bvtrots</a></strong>
+Developed with ❤️ by <strong><a href="https://github.com/murpiano">murpiano</a></strong>
 </p>
