@@ -1,7 +1,7 @@
 {
   "name": "murpiano-server",
   "version": "2.0.0",
-  "description": "test server for my projects",
+  "description": "Backend for several frontend projects: CRUD over JSON files, uploads and custom routes.",
   "author": "murpiano",
   "main": "server.js",
   "type": "module",
