@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { DbStructure } from '@shared/types/index.js';
-import { authController } from './auth.controller.js';
-import { offersController } from './offers.controller.js';
-import { favoritesController } from './favorites.controller.js';
-import { commentsController } from './comments.controller.js';
+import { DbStructure } from '../../core/store.js';
+import { authController } from './auth.js';
+import { offersController } from './offers.js';
+import { favoritesController } from './favorites.js';
+import { commentsController } from './comments.js';
 
-export default (jsonRouter: any) => {
+export const travelInComfortRoutes = (jsonRouter: any) => {
   const router = Router();
   const PROJECT = 'travel-in-comfort';
   const db = jsonRouter.db;

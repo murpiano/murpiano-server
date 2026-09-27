@@ -8,13 +8,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "rootDir": "src",
-    "outDir": "dist",
-    "baseUrl": ".",
-    "paths": {
-      "@app/*": ["src/app/*"],
-      "@entities/*":["src/entities/*"],
-      "@shared/*": ["src/shared/*"]
-    }
+    "outDir": "dist"
   },
   "include": ["src/**/*.ts"]
 }

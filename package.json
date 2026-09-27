@@ -3,12 +3,12 @@
   "version": "2.0.0",
   "description": "Backend for several frontend projects: CRUD over JSON files, uploads and custom routes.",
   "author": "murpiano",
-  "main": "server.js",
+  "main": "dist/server.js",
   "type": "module",
   "scripts": {
-    "build": "tsc && tsc-alias",
-    "dev": "tsx watch src/app/server.ts",
-    "start": "node dist/app/server.js"
+    "build": "tsc",
+    "dev": "tsx watch src/server.ts",
+    "start": "node dist/server.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/murpiano/murpiano-server#readme",
   "dependencies": {
+    "express": "^4.22.1",
     "json-server": "^0.17.4",
     "multer": "^2.1.1"
   },
@@ -28,8 +29,6 @@
     "@types/json-server": "^0.14.8",
     "@types/multer": "^2.0.0",
     "@types/node": "^25.3.3",
-    "tsc-alias": "^1.8.16",
-    "tsconfig-paths": "^4.2.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }

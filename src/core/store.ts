@@ -1,9 +1,23 @@
-import {DbStructure} from "../types/index.js";
 import {readdirSync, readFileSync, statSync, writeFileSync} from "fs";
 import path from "path";
 import {mkdirSync,existsSync} from "node:fs";
+import { Router } from 'express';
+import { DATA_DIR } from '../config.js';
 
-const DATA_DIR = path.resolve('data');
+export interface ProjectData {
+  [resourceName: string]: any[];
+}
+
+export interface DbStructure {
+  [projectName: string]: ProjectData;
+}
+
+export interface JsonRouter extends Router {
+  db: {
+    getState: () => DbStructure;
+    setState: (state: DbStructure) => void;
+  };
+}
 
 export const buildDatabase = (): DbStructure => {
   const dataBase: DbStructure = {};

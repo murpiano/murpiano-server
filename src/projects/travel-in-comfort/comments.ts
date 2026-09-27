@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { saveToDisk } from '@shared/db/index.js';
+import { saveToDisk } from '../../core/store.js';
 
 export const commentsController = (db: any, PROJECT: string, getProjectState: any, auth: any) => {
   const router = Router();

@@ -1,10 +1,9 @@
 import { Router } from 'express';
-import { upload } from '@shared/lib/index.js';
-import { saveToDisk } from '@shared/db/index.js';
-import { DbStructure } from '@shared/types/index.js';
-import { CloudpixPhoto } from '../model/types.js';
+import { upload } from '../../core/upload.js';
+import { DbStructure, saveToDisk } from '../../core/store.js';
+import { CloudpixPhoto } from './types.js';
 
-export default (jsonRouter: any) => {
+export const cloudpixRoutes = (jsonRouter: any) => {
   const router = Router();
   const PROJECT_NAME = 'cloudpix-platform';
   const RESOURCE_NAME = 'data';

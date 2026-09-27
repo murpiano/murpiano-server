@@ -1,14 +1,4 @@
-import { Router } from 'express';
-import { DbStructure } from '../types/index.js';
-import {saveToDisk} from "../db/index.js";
-
-export interface JsonRouter extends Router {
-  db: {
-
-    getState: () => DbStructure;
-    setState: (state: DbStructure) => void;
-  };
-}
+import { JsonRouter, saveToDisk } from './store.js';
 
 export const crudConductor = (server: any, router: any) => {
   const jsonRouter = router as JsonRouter;
