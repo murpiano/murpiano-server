@@ -1,8 +1,8 @@
 {
-  "name": "bvtrots-test-server",
+  "name": "murpiano-server",
   "version": "2.0.0",
   "description": "test server for my projects",
-  "author": "bvtrots",
+  "author": "murpiano",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bvtrots/bvtrots-test-server"
+    "url": "https://github.com/murpiano/murpiano-server"
   },
   "keywords": [],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bvtrots/bvtrots-test-server/issues"
+    "url": "https://github.com/murpiano/murpiano-server/issues"
   },
-  "homepage": "https://github.com/bvtrots/bvtrots-test-server#readme",
+  "homepage": "https://github.com/murpiano/murpiano-server#readme",
   "dependencies": {
     "json-server": "^0.17.4",
     "multer": "^2.1.1"
