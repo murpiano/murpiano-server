@@ -24,7 +24,7 @@ server.use(router);
 const PORT = Number(process.env.PORT) || 3001;
 
 const displayUrl = process.env.PORT
-  ? 'https://bvtrots-test-server.onrender.com'
+  ? 'https://murpiano-server.onrender.com'
   : `http://localhost:${PORT}`;
 
 server.listen(PORT, '0.0.0.0', () => {
