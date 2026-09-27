@@ -136,4 +136,4 @@ Base URL: `https://murpiano-server.onrender.com`
 
 ---
 
-<sub>Bogdan Trotsenko · [@murpiano](https://github.com/murpiano) · [Telegram](https://t.me/murpiano)</sub>
+<sub>[murpiano](https://github.com/murpiano) · [Telegram](https://t.me/murpiano) · [MIT](LICENSE)</sub>
