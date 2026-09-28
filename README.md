@@ -79,7 +79,7 @@ Needs Node 22.12 or newer.
 
 Tests sit next to the code as `*.test.ts`. They start the app on a random port against a
 temporary copy of the data, so `data/` stays untouched. CI runs the type check, the tests and
-the build on every push and pull request (`.github/workflows/ci.yml`).
+the build on pushes to `main` and on pull requests (`.github/workflows/ci.yml`).
 
 ## Where things live
 
