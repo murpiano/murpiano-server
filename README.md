@@ -104,6 +104,7 @@ Base URL: `https://murpiano-server.onrender.com`
 
 | Method                  | Path                         | Notes                                       |
 | ----------------------- | ---------------------------- | ------------------------------------------- |
+| GET                     | `/`                          | every project with its resource paths       |
 | GET, POST               | `/<project>/<resource>`      | any resource from `data/`                   |
 | GET, PUT, PATCH, DELETE | `/<project>/<resource>/<id>` | ids compared as strings                     |
 | GET                     | `/public/<path>`             | static files                                |

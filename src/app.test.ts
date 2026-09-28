@@ -33,6 +33,19 @@ afterAll(() => {
   server.close();
 });
 
+describe("root", () => {
+  it("lists every project with the paths of its resources", async () => {
+    const response = await send("GET", "/");
+    expect(response.status).toBe(200);
+    expect(await response.json()).toMatchObject({
+      projects: {
+        demo: ["/demo/items"],
+        "cloudpix-platform": ["/cloudpix-platform/data"],
+      },
+    });
+  });
+});
+
 describe("generic routes", () => {
   it("lists a resource", async () => {
     const response = await send("GET", "/demo/items");
